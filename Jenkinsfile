@@ -7,7 +7,6 @@ pipeline {
             steps {
                 withMaven(maven : 'maven_3_5_0') {
                     sh 'mvn clean compile'
-                   // sh 'docker-compose -f docker-compose.yml up -d'
                 }
             }
         }
@@ -21,12 +20,16 @@ pipeline {
             }
         }
 
-        /*stage ('Deployment Stage') {
+        stage('Maven Install') {
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn deploy'
-                }
+                sh 'mvn package -DskipTests'
             }
-        }*/
+        }
+        stage('Docker Build') {
+           
+            steps {
+                 sh 'docker build -t lirinoza/spring-petclinic:latest .'
+            }
+        }
     }
 }
