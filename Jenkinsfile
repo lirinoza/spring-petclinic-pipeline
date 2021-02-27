@@ -38,7 +38,7 @@ pipeline {
         stage('Publish Docker Image') {
            
             steps {
-                 sh 'docker push lirinassignment/lirinassignment_0227'     
+                 sh 'docker push lirinoza/spring-petclinic:latest'     
             }
         }
     }
