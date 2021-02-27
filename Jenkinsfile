@@ -22,7 +22,10 @@ pipeline {
 
         stage('Maven Install') {
             steps {
-                sh 'mvn package -DskipTests'
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn package -DskipTests'
+                }
+                
             }
         }
         stage('Docker Build') {
