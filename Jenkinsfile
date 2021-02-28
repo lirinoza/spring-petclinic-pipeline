@@ -38,7 +38,7 @@ pipeline {
         stage('Publish Docker Image') {
            
             steps {
-                withRegistry(url[myassignment.jfrog.io/docker-local, JfrogAws_Id]) { 
+                docker.withRegistry('myassignment.jfrog.io/docker-local', 'JfrogAws_Id') { 
                     sh 'docker push myassignment.jfrog.io/docker-local/docker-local:assignment_0227'    
                 } 
             }
