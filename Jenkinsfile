@@ -1,5 +1,10 @@
 pipeline {
    
+   environment { 
+3       registry = "myassignment.jfrog.io/docker-local" 
+4       registryCredential = 'JfrogAws_Id' 
+5   
+    }
     agent any
 
     stages {
@@ -38,7 +43,9 @@ pipeline {
         stage('Publish Docker Image') {
            
             steps {
-                 sh 'docker push myassignment.jfrog.io/docker-local/docker-local:assignment_0227'     
+                docker.withRegistry( '', registryCredential ) { 
+                    sh 'docker push myassignment.jfrog.io/docker-local/docker-local:assignment_0227'    
+                } 
             }
         }
     }
