@@ -6,7 +6,7 @@ Pre-requisite
    - Setup JFrog Artifactory one month free trial from https://www.jfrog.com/confluence/display/JFROG/Installing+Artifactory
    - Create JCenter account - https://bintray.com/
    - Install and configure docker desktop to run docker image
-   - Setup Global credential for Artifactory to publish image
+   - Setup Global credential for Artifactory to publish image - Need to update credential id and repository url in JenkinsFile
    
 
 Configure Jenkins
