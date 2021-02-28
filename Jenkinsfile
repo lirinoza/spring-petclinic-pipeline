@@ -32,13 +32,13 @@ pipeline {
         stage('Docker Build') {
            
             steps {
-                 sh 'docker build -t lirinoza/spring-petclinic:latest .'
+                 sh 'docker build -t myassignment.jfrog.io/docker-local/docker-local:assignment_0227 .'
             }
         }
         stage('Publish Docker Image') {
            
             steps {
-                 sh 'docker push lirinoza/spring-petclinic:latest'     
+                 sh 'docker push myassignment.jfrog.io/docker-local/docker-local:assignment_0227'     
             }
         }
     }
